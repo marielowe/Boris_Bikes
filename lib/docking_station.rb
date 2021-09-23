@@ -8,7 +8,7 @@ class DockingStation
   end
 
   def release_bike
-    fail "No bikes available" if @bikes_storage.count <= 0
+    fail "No bikes available" if empty?
     @bikes_storage.pop #pop picks the last item in an array
   end
 
@@ -21,6 +21,10 @@ class DockingStation
 
   def full?
     @bikes_storage.count >= 20
+  end
+
+  def empty?
+    @bikes_storage.count <= 0
   end
 end
 
